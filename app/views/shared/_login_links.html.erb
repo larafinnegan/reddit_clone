@@ -1,0 +1,20 @@
+<div class="loginlinks">
+  <ul>
+    <% if logged_in? %>
+      <li><%= link_to current_user %></li>
+      <li><%= link_to "Messages", "#" %></li>
+      <li><%= link_to "Preferences", "#" %></li>
+      <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+    <% else %>
+      <li><%= link_to "Sign In", login_path %></li>
+      <li><%= link_to "Create an Account", new_user_path %></li>
+      <% end %>
+  </ul>
+  <div id="search">
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+  </div>
+  </div>

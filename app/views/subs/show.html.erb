@@ -1,9 +1,11 @@
 <h2><%= @sub.name %></h2>
-<div id="column1"> 
-  <%= render 'sub_header' %>
-  <% @sub.posts.each do |post| %>
+<div class="column1"> 
+  <%= render 'shared/sub_header' %>
+  <% @posts.each do |post| %>
     <div class="title"><%= link_to post.title %></div>
-    <div class="author">Submitted by <%= link_to post.user.username %> <%= time_ago_in_words(post.created_at) %> ago</div>
+    <div class="author">Submitted by <%= link_to post.user.username, user_path %> <%= time_ago_in_words(post.created_at) %> ago</div>
     <% end %>
-    </div>
-
+  </div>
+  <div class="column2">
+ <%= render 'shared/login_links' %>
+ </div>
