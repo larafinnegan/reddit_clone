@@ -1,0 +1,17 @@
+<header id="primary">
+  <ul>
+    <% unless logged_in? %>
+    <li><%= link_to "MY SUBREDDITS", "#" %></li>
+    <% end %>
+    <li><%= link_to "FRONT", root_path %></li>
+    <li><%= link_to "ALL", "#" %></li>
+    <li><%= link_to "EARTHPORN", "#" %></li>
+    <li><%= link_to "FUNNY", "#" %></li>
+    <li><%= link_to "AWW", "#" %></li>
+    <li><%= link_to "BOOKS", "#" %></li>
+    <li><%= link_to "PERSONALFINANCE", "#" %></li>
+    <li><%= link_to "NEWS", "#" %></li>
+    <li><%= link_to "PICS", "#" %></li>
+    <li><%= link_to "ASKREDDIT", "#" %></li>
+  </ul>
+</header>
