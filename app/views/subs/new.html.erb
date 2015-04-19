@@ -1,0 +1,9 @@
+<h2>Create a New Sub</h2>
+<%= form_for @sub do |f| %>
+	<div>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	</div>
+	<p><%= f.submit %></p>
+
+<% end %>

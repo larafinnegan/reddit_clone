@@ -1,0 +1,9 @@
+<h1>All Posts</h1>
+
+<% @posts.each do |post| %>
+<div>
+<%= post.title %>
+Posted by <%= post.user.username %> <%= time_ago_in_words(post.created_at) %> ago.
+</div>
+<% end %>
+

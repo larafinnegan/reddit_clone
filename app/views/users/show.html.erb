@@ -1,0 +1,9 @@
+<h2><%= @user.username %>'s Page</h2>
+
+<h3>Posts</h3>
+
+<% @user.posts.each do |post| %>
+<div>
+	<%= post.title %>
+</div>
+<% end %> 
