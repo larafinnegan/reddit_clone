@@ -1,7 +1,7 @@
 <div class="loginlinks">
   <ul>
     <% if logged_in? %>
-      <li><%= link_to current_user %></li>
+      <li><%= link_to current_user.username, user_path(current_user) %></li>
       <li><%= link_to "Messages", "#" %></li>
       <li><%= link_to "Preferences", "#" %></li>
       <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
