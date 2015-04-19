@@ -2,16 +2,38 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    border: 1px solid black;
 }
 
 #primary li {
     display: inline;
     padding: 5px;
+    border: 1px solid black;
 }
 
 #primary {
   overflow: hidden;
   white-space: nowrap;
   height: 30px;
+  border: 1px solid black;
 }
 
+#inner ul {
+    list-style-type: none;
+    margin-top: 30;
+    padding: 0;
+    border: 1px solid black;
+}
+
+#inner li {
+    display: inline;
+    padding: 3px;
+    border: 1px solid black;
+}
+
+#inner {
+  overflow: hidden;
+  white-space: nowrap;
+  height: 50px;
+  border: 1px solid black;
+}
