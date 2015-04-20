@@ -2,13 +2,17 @@
 
 <%= form_for(:session, url: login_path) do |f| %>
 <div>
-<%= f.label :username %>
-<%= f.text_field :username %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
 </div>
 <div>
-<%= f.label :password %>
-<%= f.password_field :password %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
 </div>
+<%= f.label :remember_me do %>
+<%= f.check_box :remember_me %>
+<span>Remember me</span>
+<% end %>
 <p><%= f.submit "Log In" %></p>
 <% end %>
 
