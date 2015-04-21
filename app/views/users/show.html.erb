@@ -5,5 +5,7 @@
 <% @user.posts.each do |post| %>
 <div>
 	<%= post.title %>
+      <%= post.content %>
 </div>
+<%= will_paginate @posts %>
 <% end %> 

@@ -4,8 +4,8 @@
 
   <% @posts.each do |post| %>
   <div>
-    <%= post.title %>
-    Posted by <%= post.user.username %> <%= time_ago_in_words(post.created_at) %> ago.
+    <p><%= link_to post.title, post_path(post) %></p>
+    Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= link_to post.user.username, user_path(post.user)  %> to <%= link_to post.sub.name, sub_path(post.sub) %>
   </div>
   <% end %>
 
