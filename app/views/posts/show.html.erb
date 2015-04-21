@@ -2,6 +2,7 @@
 <p><%= @post.content %></p>
    Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= link_to @post.user.username, user_path(@post.user)  %>
 
+<h3>Comments</h3>
    <% @post.comments.each do |comment| %>
     <div>
       <%= comment.content %>

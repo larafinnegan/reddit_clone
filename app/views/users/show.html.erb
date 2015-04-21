@@ -4,8 +4,9 @@
 
 <% @user.posts.each do |post| %>
 <div>
-	<%= post.title %>
+	<p><%= link_to post.title, post_path(post) %>
       <%= post.content %>
+      Submitted <%= time_ago_in_words(post.created_at) %> ago</p>
 </div>
 <%= will_paginate @posts %>
 <% end %> 
