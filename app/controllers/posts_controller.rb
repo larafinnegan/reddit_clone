@@ -21,6 +21,12 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def edit
+	end
+
+	def update
+	end
+
 
 	private
 
@@ -30,6 +36,7 @@ class PostsController < ApplicationController
 
 	def logged_in_user
 		unless logged_in?
+			store_location
 			flash[:danger] = "Please log in."
 			redirect_to login_url
 		end

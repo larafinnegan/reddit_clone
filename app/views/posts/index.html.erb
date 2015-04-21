@@ -1,13 +1,17 @@
 <h1>All Posts</h1>
 <div class="column1"> 
   <%= render 'shared/sub_header' %>
+
   <% @posts.each do |post| %>
   <div>
     <%= post.title %>
     Posted by <%= post.user.username %> <%= time_ago_in_words(post.created_at) %> ago.
   </div>
   <% end %>
+
 </div>
+
+
 <div class="column2">
   <%= render 'shared/login_links' %>
 </div>
