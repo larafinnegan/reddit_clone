@@ -1,11 +1,5 @@
-=begin
-User.create!(username:  "Frank2",
-             email: "example@example.org",
-             password:              "foobar",
-             password_confirmation: "foobar")
-
-20.times do |n|
-  username  = Faker::Internet.user_name
+50.times do |n|
+  username  = Faker::Internet.user_name + n.to_s
   email = "example-#{n+1}@example.org"
   password = "password"
   User.create!(username:  username,
@@ -13,32 +7,37 @@ User.create!(username:  "Frank2",
                password:              password,
                password_confirmation: password)
 end
-=end
 
-Sub.create(name: "funny")
-Sub.create(name: "aww")
-Sub.create(name: "personalfinance")
-Sub.create(name: "gaming")
-Sub.create(name: "earthporn")
-Sub.create(name: "books")
-Sub.create(name: "movies")
-Sub.create(name: "askscience")
+subs = ["funny", "aww", "personalfinance", "gaming", "earthporn", "books", "movies", "askscience", "news", "pics"]
 
-Post.create!(title: "This is a post",
-             content: "post post post",
-             sub_id: 1,
-             user_id: 3)
+subs.each { |sub| Sub.create(name: sub) }
 
-80.times do |n|
+100.times do |n|
   title  = Faker::Lorem.sentence
   content = Faker::Lorem.paragraph
-  sub_id = (rand(8) + 1)
-  user_id = (rand(21) + 1)
+  sub_id = (rand(10) + 1)
+  user_id = (rand(50) + 1)
   created_at = (Time.now - rand(30000000))
 
-  Post.create!(title: title,
+  @post = Post.create!(title: title,
                content: content,
                sub_id: sub_id,
                user_id: user_id,
                created_at: created_at)
+
+  num = rand(50)
+
+  (1..num).each do |m|
+  content = Faker::Lorem.paragraph
+  user_id = (rand(50) + 1)
+  Comment.last ? parent_id = Comment.last.id - rand(m) : parent_id = 0
+  post_id = @post.id
+  created_at = Time.now - rand((Time.now - @post.created_at)) 
+
+  Comment.create!(content: content,
+               user_id: user_id,
+               parent_id: parent_id,
+               post_id: post_id,
+               created_at: created_at)
+end
 end

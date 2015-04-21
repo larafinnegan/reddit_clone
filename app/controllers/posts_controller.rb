@@ -13,8 +13,9 @@ class PostsController < ApplicationController
 
 	def create
 		@subs = Sub.all
-		@post = Post.new(post_params)
+		@post = current_user.posts.build(post_params)
 		if @post.save
+			flash[:success] = "Post submitted successfully!"
 			redirect_to root_url
 		else
 			render 'new'
@@ -36,14 +37,6 @@ class PostsController < ApplicationController
 
 	def post_params
 		params.require(:post).permit(:title, :content, :sub_id, :user_id)
-	end
-
-	def logged_in_user
-		unless logged_in?
-			store_location
-			flash[:danger] = "Please log in."
-			redirect_to login_url
-		end
 	end
 
 	def correct_user

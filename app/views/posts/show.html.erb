@@ -1,3 +1,12 @@
 <h3><%= @post.title %></h3>
 <p><%= @post.content %></p>
-   Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= link_to @post.user.username, user_path  %>
+   Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= link_to @post.user.username, user_path(@post.user)  %>
+
+   <% @post.comments.each do |comment| %>
+    <div>
+      <%= comment.content %>
+      </div>
+      <div>
+      Submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.username, user_path(comment.user) %>
+      </div>
+  <% end %>
